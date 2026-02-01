@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Bini ❤️</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fce4ec; /* Light pink background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            height: 50px;
+            position: relative;
+        }
+        button {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+            z-index: 1;
+        }
+        #noBtn {
+            background-color: #e0e0e0;
+            color: #666;
+            position: absolute;
+            left: 55%; /* Start position */
+        }
+        .hidden { display: none; }
+        
+        /* Sparkle effect for the end */
+        .yay-text {
+            color: #ff4d6d;
+            font-size: 3rem;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="mainCard">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwdW1xdzZtZ3B4eW14eW14eW14eW14eW14eW14eW14eW14SZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute Animal">
+        
+        <h1>bini will you be my valentines?</h1>
+        
+        <div class="buttons">
+            <button id="yesBtn">Yes</button>
+            <button id="noBtn">No</button>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.8rem; color: #999;">"No" seems a bit shy 😉</p>
+    </div>
+    <div class="container hidden" id="successCard">
+        <h1 class="yay-text">YAY! 🎉</h1>
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXN6ZzF6ZzF6ZzF6ZzF6ZzF6ZzF6ZzF6ZzF6ZzF6ZzF6ZzF6ZzF6ZzF6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l41lTfuxV5R8Fh5S0/giphy.gif" alt="Celebration">
+        <p>I knew you'd say yes! ❤️</p>
+    </div>
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const mainCard = document.getElementById('mainCard');
+        const successCard = document.getElementById('successCard');
+        // This makes the "No" button move whenever the mouse touches it
+        noBtn.addEventListener('mouseover', () => {
+            // Calculate random positions within the screen
+            const maxWidth = window.innerWidth - noBtn.offsetWidth;
+            const maxHeight = window.innerHeight - noBtn.offsetHeight;
+            
+            const randomX = Math.floor(Math.random() * maxWidth);
+            const randomY = Math.floor(Math.random() * maxHeight);
+            
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+            noBtn.style.position = 'fixed'; // Allows it to move anywhere on screen
+        });
+        // This triggers the celebration
+        yesBtn.addEventListener('click', () => {
+            mainCard.classList.add('hidden');
+            successCard.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
